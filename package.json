@@ -49,7 +49,6 @@
   "packageManager": "npm@12.2.3",
   "dependencies": {
     "connect-pg-simple": "^10.0.0",
-    "csrf-csrf": "^4.1.0",
     "express-session": "^1.19.0",
     "lusca": "^1.7.0",
     "react-router-dom": "^7.18.7"
