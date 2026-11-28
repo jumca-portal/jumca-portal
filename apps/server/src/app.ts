@@ -85,12 +85,13 @@ app.use(morgan(env.NODE_ENV === "production" ? "combined" : "dev"));
 app.use(`${API_PREFIX}`, apiLimiter);
 
 // CSRF token generation route (public endpoint to retrieve token)
-app.get(`${API_PREFIX}/csrf-token`, (req, res, _) => {
+app.get(`${API_PREFIX}/csrf-token`, (req, res) => {
   lusca.csrf({ header: "x-csrf-token" })(req, res, () => {
     res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
     res.setHeader("Pragma", "no-cache");
     res.setHeader("Expires", "0");
-    res.json({ csrfToken: res.locals._csrf });
+    const locals = res.locals as Record<string, unknown>;
+    res.json({ csrfToken: locals["_csrf"] });
   });
 });
 

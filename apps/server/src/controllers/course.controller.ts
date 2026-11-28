@@ -50,7 +50,7 @@ export const saveElective = asyncHandler(
       res.status(401).json({
         success: false,
         message: "User not authenticated",
-        data: null as any,
+        data: null,
       });
       return;
     }

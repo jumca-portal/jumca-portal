@@ -82,5 +82,5 @@ export interface GetElectivesResponse {
 export interface SaveElectiveResponse {
   success: boolean;
   message: string;
-  data: UserElectiveDto;
+  data: UserElectiveDto | null;
 }

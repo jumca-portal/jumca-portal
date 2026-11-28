@@ -11,6 +11,6 @@ apps/server/generated
 *.config.mjs
 *vite.config.js
 
-*.d.ts
+**/*.d.ts
 .turbo/cache
 *vite.config.js
