@@ -8,7 +8,7 @@ This project is maintained by successive batches of student developers. Please f
 
 ---
 
-# Prerequisites
+## Prerequisites
 
 Before contributing, ensure you have the following installed:
 
@@ -21,7 +21,7 @@ Before contributing, ensure you have the following installed:
 
 ---
 
-# Project Structure
+## Project Structure
 
 The repository is organized as an npm workspace monorepo.
 
@@ -38,7 +38,7 @@ docs/
 
 ---
 
-# Getting Started
+## Getting Started
 
 Clone the repository.
 
@@ -55,7 +55,7 @@ npm install
 
 ---
 
-# Environment Setup
+## Environment Setup
 
 Copy the environment templates.
 
@@ -68,7 +68,7 @@ Fill in the required environment variables before starting the application.
 
 ---
 
-# Database Setup
+## Database Setup
 
 Whenever the Prisma schema changes:
 
@@ -94,7 +94,7 @@ npm run server:prisma:seed
 
 ---
 
-# Running the Project
+## Running the Project
 
 Start both applications simultaneously.
 
@@ -119,25 +119,22 @@ Default development ports:
 
 ---
 
-# Before Committing
+## Before Committing
 
 Run the linter.
 
+Run linting, formatting, and strict TypeScript checks before pushing:
+
 ```bash
 npm run lint
-```
-
-Verify the project builds successfully.
-
-```bash
+npm run format:check
+npm run typecheck
 npm run build
 ```
 
-Fix all linting and TypeScript errors before opening a Pull Request.
-
 ---
 
-# Coding Standards
+## Coding Standards
 
 Please follow the conventions defined in the Developer Guide.
 
@@ -158,18 +155,18 @@ General rules include:
 
 ---
 
-# Branch Strategy
+## Branch Strategy
 
 The project follows a simplified GitFlow workflow.
 
 Permanent branches:
 
-- `master`
+- `main`
 - `develop`
 
 Development branches:
 
-```
+```txt
 feature/<short-description>
 
 fix/<short-description>
@@ -179,7 +176,7 @@ hotfix/<short-description>
 
 Examples:
 
-```
+```txt
 feature/resource-upload
 
 feature/interview-experience
@@ -189,13 +186,19 @@ fix/login-validation
 docs/developer-guide
 ```
 
-Never push directly to **master**.
+Never push directly to **main**.
 
 Always create a Pull Request.
 
 ---
 
-# Keeping Your Branch Updated
+## Rules for New Contributors
+
+- Never start work without an assigned GitHub Issue (`good first issue` or approved task).
+- Keep Pull Requests small (under ~300 lines changed, focused on one issue).
+- Never modify `apps/server/prisma/schema.prisma`, `packages/shared`, or `.github/` unless explicitly specified in your assigned issue.
+
+## Keeping Your Branch Updated
 
 Before starting work:
 
@@ -227,7 +230,7 @@ Do **not** use `--force`.
 
 ---
 
-# Commit Messages
+## Commit Messages
 
 This project follows the Conventional Commits specification.
 
@@ -282,7 +285,7 @@ misc
 
 ---
 
-# Pull Requests
+## Pull Requests
 
 All Pull Requests must target the **develop** branch.
 
@@ -303,7 +306,7 @@ The repository uses **Squash and Merge** to maintain a clean commit history.
 
 ---
 
-# API Changes
+## API Changes
 
 If your Pull Request introduces or modifies an API endpoint:
 
@@ -314,7 +317,7 @@ If your Pull Request introduces or modifies an API endpoint:
 
 ---
 
-# Database Changes
+## Database Changes
 
 If your Pull Request modifies the Prisma schema:
 
@@ -325,7 +328,7 @@ If your Pull Request modifies the Prisma schema:
 
 ---
 
-# Documentation
+## Documentation
 
 Documentation is part of the project.
 
@@ -340,7 +343,7 @@ Update documentation whenever you change:
 
 ---
 
-# Need Help?
+## Need Help?
 
 If you are unsure about a design decision, architecture change, or implementation approach, consult the Developer Guide first. If the guide does not answer your question, open a discussion or ask one of the project maintainers before proceeding.
 

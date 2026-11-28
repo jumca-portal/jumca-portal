@@ -1,0 +1,56 @@
+name: Lint, Typecheck & Build
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - develop
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Upgrade npm to match devEngines
+        run: sudo npm install -g npm@11.16.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Copy server env example
+        run: cp apps/server/.env.example apps/server/.env
+
+      - name: Generate Prisma Client
+        run: npm run server:prisma:generate
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Check Prettier formatting
+        run: npm run format:check
+
+      - name: Run TypeScript typecheck
+        run: npm run typecheck
+
+      - name: Build all workspaces
+        run: npm run build

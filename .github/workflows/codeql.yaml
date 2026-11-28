@@ -1,16 +1,14 @@
-name: CI
+name: CodeQL Security Scan
 
 on:
   push:
     branches:
       - develop
-      - master
-
+      - main
   pull_request:
     branches:
       - develop
-      - master
-
+      - main
   schedule:
     - cron: "0 3 * * 0"
 
@@ -48,19 +46,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run lint
-        run: npm run lint
-
-      - name: Run format check
-        run: npm run format:check
-
-      - name: Copy server env example to .env
+      - name: Copy server env example
         run: cp apps/server/.env.example apps/server/.env
 
       - name: Generate Prisma Client
         run: npm run server:prisma:generate
 
-      - name: Build packages
+      - name: Build packages for CodeQL
         run: npm run build
 
       - name: Perform CodeQL Analysis

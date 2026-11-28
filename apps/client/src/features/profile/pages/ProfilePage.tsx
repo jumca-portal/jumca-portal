@@ -6,8 +6,6 @@ import {
   Star,
   Award,
   Pencil,
-  Github,
-  Linkedin,
   Globe,
   Shield,
   X,
@@ -15,6 +13,7 @@ import {
   Trash2,
   Loader2,
 } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/Icons.tsx";
 import { useAuth } from "@/features/auth/hooks/useAuth.ts";
 import EditProfileModal from "../components/EditProfileModal.tsx";
 import { useUpdateProfile } from "../api/profile.ts";
@@ -635,7 +634,7 @@ const ProfileCard = ({
               className="text-text-muted hover:text-primary transition-colors p-1"
               title="GitHub Profile"
             >
-              <Github size={16} />
+              <GithubIcon size={16} />
             </a>
           )}
           {linkedinUrl && (
@@ -646,7 +645,7 @@ const ProfileCard = ({
               className="text-text-muted hover:text-primary transition-colors p-1"
               title="LinkedIn Profile"
             >
-              <Linkedin size={16} />
+              <LinkedinIcon size={16} />
             </a>
           )}
           {leetcode && (
