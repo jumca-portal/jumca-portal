@@ -1,0 +1,22 @@
+# Default owner for all files in the monorepo
+* @devolskii
+
+# Protect CI/CD, GitHub templates, and repo governance
+/.github/ @devolskii
+
+# Protect shared workspace contracts (breaking changes affect both client and server)
+/packages/shared/ @devolskii
+
+# Protect database schema, migrations, and seeding scripts
+/apps/server/prisma/ @devolskii
+
+# Protect authentication, authorization, CSRF/XSS security, and server entrypoints
+/apps/server/src/middleware/ @devolskii
+/apps/server/src/middlewares/ @devolskii
+/apps/server/src/config/ @devolskii
+/apps/server/src/app.ts @devolskii
+/apps/server/src/server.ts @devolskii
+
+# Protect root dependency manifests and lockfile
+/package.json @devolskii
+/package-lock.json @devolskii
