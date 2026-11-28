@@ -18,13 +18,13 @@ permissions:
   security-events: write
 
 jobs:
-  analyze:
+  build-and-analyze:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         language:
-          - javascript-typescript
+          - javascript
 
     steps:
       - uses: actions/checkout@v4
